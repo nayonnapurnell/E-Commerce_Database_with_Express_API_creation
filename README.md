@@ -1,4 +1,4 @@
-# E-Commerce Database with Express JS
+# E-Commerce Database with Express
 
 ## Project Description
  ------
