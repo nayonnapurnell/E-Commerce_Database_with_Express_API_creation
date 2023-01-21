@@ -15,11 +15,22 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+// find a single product by its `id`
+// be sure to include its associated Category and Tag data
+router.get('/:id', async(req, res) => {
+  try {
+    const productData = await Product.findOne({
+      include: [{ model: Category }, { model: Tag }],
+    });
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+
+
+
 
 // create new product
 router.post('/', (req, res) => {
@@ -95,8 +106,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete one product by its `id` value
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
   Product.destroy({
     where: {
       id: req.params.id,
@@ -106,8 +117,6 @@ router.delete('/:id', (req, res) => {
       res.json(deletedCategory);
     })
     .catch((err) => res.json(err));
-
-
 });
 
 module.exports = router;
