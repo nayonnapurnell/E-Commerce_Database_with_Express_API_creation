@@ -24,7 +24,14 @@ This repository stores the back-end code for an E-Commerce website.  It uses Nod
   
   ## Usage 
   ------
-Video Walk-through
+
+Get Request Video Walkthrough:
+
+Post Video Walkthrough:
+
+Put Video Walkthrough:
+
+Delete Video Walkthrough:
 
   
   ## License
